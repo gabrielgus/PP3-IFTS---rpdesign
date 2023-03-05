@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Alta usuario {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+  <div class="container3">
+    <div class="separador"></div>
+
+    {% if user.is_authenticated %}
+      <h1> "Bienvenido {{ user.first_name|lower }} a RP design" </h1>
+    {% else %}
+      <h1> "Bienvenido a RP design" </h1>
+    {% endif %}
+
+    
+    <div>
+      <h4> Edición de usuario </h4>
+    </div>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+    </div>
+    {% endfor %}
+
+    <div class="form2">
+      <form novalidate='True' id="altau-form" name="altau-form" action="{% url 'appRP:editar_usuario' user.id %}"  method="POST" onsubmit="return validarForm()" >
+        {% csrf_token %}
+
+        <div class="form-row">
+
+          {% for field in modu_form %}
+
+            {{ field.label_tag }}
+            {{ field }}
+            
+          {% endfor %}
+
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock contenido %}
+
+{% block javascript %}
+  {% load static %}
+    <script src="{% static 'js/validar.js' %}"></script>
+{% endblock javascript %}

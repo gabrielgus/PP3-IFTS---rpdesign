@@ -1,0 +1,26 @@
+
+{% block contenido %}
+
+        <main>
+            <section>
+                <div class="container3">
+                    <div class="separador"></div>
+                        <h1> "Bienvenido a RP design" </h1>
+                        {{ value|time:"TIME_FORMAT" }}
+                    <div class="logos">
+                        <div class="svg3">
+                            {% load static %}
+                            <a href="./decor.html"><img src="{% static 'images/decor.svg' %}" alt="Decoraci&oacute;n">
+                            </a>
+                        </div>
+                        <div class="svg3">
+                            {% load static %}
+                            <a href=""><img src="{% static 'images/design.svg' %}" alt="Dise&ntilde;o">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+{% endblock contenido %}

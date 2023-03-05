@@ -1,0 +1,39 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Crear Orden {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+    <div class="container3">
+
+        <h1>Checkout</h1>
+            <div class="order-info">
+            <h3>Su orden</h3>
+            <ul>
+                {% for item in carrito %}
+                    <li>
+                        {{ item.cantidad }}x {{ item.producto.nombre }}
+                    <span>${{ item.precio_total }}</span>
+                    </li>
+                {% endfor %}
+                <li>Envio <span>${{ envio }}0</span></li>
+            </ul>
+            <p>Total: ${{ carrito.get_precio_total|add:envio }}</p>
+            </div>
+        <form method="POST" class="form">
+            <h4> Datos de envio: </h4>
+            {% for field in form %}
+                {{ field.label_tag }}
+                {{ field }}   
+            {% endfor %} 
+        <button class="btn btn-primary" type="submit">Generar Orden</button>
+            {% csrf_token %}
+        </form>
+
+    </div>
+</main>
+
+{% endblock contenido %}
+
+

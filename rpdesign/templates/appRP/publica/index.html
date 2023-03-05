@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Inicio {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+    <section>
+        <div class="container3">
+            <div class="separador"></div>
+            <h1> "Bienvenido a RP design" </h1>
+           <p> {% now 'l j \d\e F Y - H:i ' %} </p>
+            <div class="logos">
+                <div class="svg3">
+                    {% load static %}
+                    <a href="./decoracion"><img src="{% static 'images/decor.svg' %}" alt="Decoraci&oacute;n">
+                    </a>
+                </div>
+                <div class="svg3">
+                    {% load static %}
+                    <a href=""><img src="{% static 'images/design.svg' %}" alt="Dise&ntilde;o">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock contenido %}

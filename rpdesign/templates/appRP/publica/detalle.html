@@ -1,0 +1,66 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Decoracion {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+    <section>
+        <div class="container3">
+            <div class="separador"></div>
+            {% if user.is_authenticated %}
+              <h1> "Bienvenido {{ user.first_name|lower }} a RP design" </h1>
+            {% else %}
+              <h1> "Bienvenido a RP design" </h1>
+            {% endif %}
+
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    {% load static %}
+                    <img src={% get_media_prefix %}{{producto.imagen}} alt={{producto.nombre}} class="img-fluida rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{producto.nombre}}</h5>
+                      <p class="card-text">{{producto.descripcion}}</p>
+                      <p class="card-text"><small class="text-muted">Formato disponible {{producto.formato}}</small></p>
+                      <div class="card-text">
+                        <p>$ {{producto.precio}}.-</p>
+                      </div>
+                      <form action="{% url "appRP:carrito_add" producto.id %}" method="post">
+                        {{ carrito_producto_form }}
+                        {% csrf_token %}
+                        {% if user.is_authenticated %}
+                            <input type="submit" value="Agregar al Carrito" class="card-submit">
+                        {% else %}
+                            <input type="button" value="Agregar al Carrito" class="card-button">
+                        {% endif %}
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="overlay" id="overlay">
+                <div class="popup" id="popup">
+                  <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="bi bi-x-square-fill"></i> </a>
+                  <div class="svgpop">
+                      {% load static %}
+                      <img src="{% static 'images/logo2.svg' %}" alt="RPdesign">
+                    </div>
+                  <h2>"para poder comprar debe iniciar sesión"</h2>
+                </div>
+              </div>
+
+        </div>
+    </section>
+</main>
+
+
+{% endblock contenido %}
+
+
+{% block javascript %}
+  {% load static %}
+    <script src="{% static 'js/popup.js' %}"></script>
+{% endblock javascript %}

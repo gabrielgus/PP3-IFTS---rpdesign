@@ -1,0 +1,1003 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.form-select {
+    display:block;
+    width:100%;
+    padding:.6rem 2.25rem .6rem .75rem;
+    -moz-padding-start:calc(0.75rem - 3px);
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.5;
+    color:#212529;
+    background-color:#fff;
+    background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat:no-repeat;
+    background-position:right .75rem center;
+    background-size:16px 12px;
+    border:1px solid #ced4da;
+    border-radius:.25rem;
+    transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+   }
+
+@media (max-width: 550px) {
+    #contenedor {
+        margin: 0 auto;
+        width: 95%;
+        box-shadow: -15px 0px 15px -10px rgba(100, 100, 111, 0.9), 15px 0px 15px -10px rgba(100, 100, 111, 0.9), 10px 0px 15px 00px rgba(0,0,0,0);
+    }
+    .logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .svg2 {
+        content: url('../images/header3-01.svg');
+    }
+    .svg3 {
+        margin: 0 auto;
+        min-width: 65%;
+        /*padding-bottom: 100%; */
+    }
+    .mapa_contacto {
+        width: 80%;
+        border-width: 1px;
+        border-style: solid;
+    }
+    .button {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        background-color: gray;
+        padding: .6rem .5rem .4rem .5rem;
+        display: none;
+        width: 6.5rem;
+        /*height: 1.5rem;*/
+        text-align: center;
+    }
+    .button:hover {
+        color: black;
+        background-color: #b2dfe0;
+    }
+    /*Menu burger*/
+    ul{
+        display: none;
+    }
+    input:checked  ~ ul{
+        display:block;
+    }
+    input {
+        display: none;
+    }
+    .burger label {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 2.5rem;
+        height: auto;
+        line-height: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        user-select: none;
+    }
+    /* Estilo del boton cuando el menú está expandido*/
+    input:checked ~ label {
+        background: #b2dfe0; 
+    }  
+    li {
+        display: block;
+        background: gray;
+        margin: 0;
+        padding: 10px;
+        list-style: none;
+        border-bottom: 1px solid #b2dfe0;
+    }
+    /*Estilo cuando el mouse pasa encima de cada link del menu*/
+    li:hover {
+        background-color: #b2dfe0; 
+    }
+    nav {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: -7px;
+        background: gray;
+    }
+    .burgerbut {
+        color: white;
+    }
+    .burgerbut:hover {
+        color: black;
+    }
+    .titulo {
+        text-align: center;
+    }
+    
+    /*Estilo del formulario*/
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+    .form2 {
+        position: relative;
+        top: 50px;
+        z-index: 0;
+        background: #FFFFFF;
+        max-width: 560px;
+        margin: 0 auto 165px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form2 label{
+        font-family: "Roboto", sans-serif;
+        color: rgb(0, 0, 0);
+        font-weight: lighter;
+    }
+    .form {
+        position: relative;
+        top: 50px;
+        z-index: 0;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 165px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form input, .form2 input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #c6e7e8;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+        display: inline-flex;
+    }
+    .form span, .form2 span {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #66bfc2;
+        width: 10%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .form button, .form2 button {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: gray;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+    .form button:hover,.form button:active,.form button:focus, .form2 button:hover,.form2 button:active,.form2 button:focus  {
+        background: rgba(0, 153, 153, 0.6);
+        color: #000000;
+    }
+    .form .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+    .form .message a {
+        color: rgba(0, 153, 153, 0.6);
+        text-decoration: none;
+    }
+    .form-row2 {
+        display: flex;
+        color: rgba(0, 153, 153, 0.6);
+    }
+    #desplegable {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #c6e7e8;
+        margin: 0 0 15px;
+        padding: 17px;
+        border: 0;
+        font-size: 14px;
+    }
+    /* error al loguearse */
+    .error {
+        font-family: "Roboto", sans-serif;
+        color: rgb(255, 0, 0);
+        text-align: center;
+        font-size: .8rem;
+        position: relative;
+        top: 0px;
+        z-index: 2;
+    }
+}
+
+@media (min-width: 550px) {
+    #contenedor {
+        margin: 0 auto;
+        width: 85%;
+        box-shadow: -15px 0px 15px -10px rgba(100, 100, 111, 0.9), 15px 0px 15px -10px rgba(100, 100, 111, 0.9), 10px 0px 15px 00px rgba(0,0,0,0);
+    }
+    .logos {
+        display: flex;
+        padding: 5vh;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    /*.svg2 {
+        margin: 0 auto;
+        width: 100%;
+        /*padding-bottom: 100%; 
+    }*/
+    .svg2 {
+        content: url('../images/header4.svg');
+    }
+    .svg3 {
+        margin: 0 auto;
+        width: 35%;
+    }
+    .mapa_contacto {
+        width: 50%;
+        border-width: 1px;
+        border-style: solid;
+    }
+    .burger {
+        display: none;
+    }
+    .button {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        background-color: gray;
+        padding: .6rem .5rem .4rem .5rem;
+        display: inline-block;
+        width: 6.5rem;
+        /*height: 1.5rem;*/
+        text-align: center;
+    }
+    .button:hover {
+        color: black;
+        background-color: #b2dfe0;
+    }
+    nav {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: -7px;
+        text-align: right;
+        background: gray;
+    }
+    .titulo {
+        text-align: center;
+    }
+
+    /*Estilo del formulario*/
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+    .form2 {
+        position: relative;
+        top: 50px;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 560px;
+        margin: 0 auto 165px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    
+    .form2 label{
+        font-family: "Roboto", sans-serif;
+        color: rgb(0, 0, 0);
+        font-weight: lighter;
+    }
+    .form {
+        position: relative;
+        top: 50px;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 165px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form input, .form2 input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #c6e7e8;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .form span, .form2 span {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #66bfc2;
+        width: 10%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .form button, .form2 button {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: gray;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+    .form button:hover,.form button:active,.form button:focus, .form2 button:hover,.form2 button:active,.form2 button:focus  {
+        background: rgba(0, 153, 153, 0.6);
+        color: #000000;
+    }
+    .form .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+    .form .message a {
+        color: rgba(0, 153, 153, 0.6);
+        text-decoration: none;
+    }
+    .form-row2 {
+        display: flex;
+        color: rgba(0, 153, 153, 0.6);
+    }
+    #desplegable {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #c6e7e8;
+        margin: 0 0 15px;
+        padding: 17px;
+        border: 0;
+        font-size: 14px;
+    }
+    /* error al loguearse */
+    .error {
+        font-family: "Roboto", sans-serif;
+        color: rgb(255, 0, 0);
+        text-align: center;
+        font-size: .8rem;
+        position: relative;
+        top: 0px;
+        z-index: 2;
+    }
+}
+
+@media (min-width: 850px) {
+    #contenedor {
+        margin: 0 auto;
+        width: 75%;
+        box-shadow: -15px 0px 15px -10px rgba(100, 100, 111, 0.9), 15px 0px 15px -10px rgba(100, 100, 111, 0.9), 10px 0px 15px 00px rgba(0,0,0,0);
+    }
+    .logos {
+        display: flex;
+        padding: 12vh;
+    }
+    .svg2 {
+        margin: 0 auto;
+        width: 100%;
+        content: url('../images/header2copy.svg');
+    }
+    .svg3 {
+        margin: 0 auto;
+        width: 25%;
+    }
+/*
+
+    .svg3 img {
+        transition: 0.3s;
+      }
+      
+      .svg3 img:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+*/
+
+.mapa_contacto {
+        width: 30%;
+        border-width: 1px;
+        border-style: solid;
+    }
+    .burger {
+        display: none;
+    }
+    .button {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        background-color: gray;
+        padding: .6rem .5rem .4rem .5rem;
+        display: inline-block;
+        width: 6.5rem;
+        /*height: 1.5rem;*/
+        text-align: center;
+    }
+    .button:hover {
+        color: black;
+        background-color: #b2dfe0;
+    }
+    nav {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: -7px;
+        text-align: right;
+        background: gray;
+    }
+    .titulo {
+        text-align: center;
+    }
+    
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+    .form2 {
+        position: relative;
+        top: 50px;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 560px;
+        margin: 0 auto 165px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form2 label{
+        font-family: "Roboto", sans-serif;
+        color: rgb(0, 0, 0);
+        font-weight: lighter;
+    }
+    .form {
+        position: relative;
+        top: 50px;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 165px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form input, .form2 input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #c6e7e8;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .form span, .form2 span {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #66bfc2;
+        width: 10%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .form button, .form2 button {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: gray;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+    .form button:hover,.form button:active,.form button:focus, .form2 button:hover,.form2 button:active,.form2 button:focus  {
+        background: rgba(0, 153, 153, 0.6);
+        color: #000000;
+    }
+    .form .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+    .form .message a {
+        color: rgba(0, 153, 153, 0.6);
+        text-decoration: none;
+    }
+    .form-row2 {
+        display: flex;
+        color: rgba(0, 153, 153, 0.6);
+    }
+    #desplegable {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #c6e7e8;
+        margin: 0 0 15px;
+        padding: 17px;
+        border: 0;
+        font-size: 14px;
+    }
+    /* error al loguearse */
+    .error {
+        font-family: "Roboto", sans-serif;
+        color: rgb(255, 0, 0);
+        text-align: center;
+        font-size: .8rem;
+        position: relative;
+        top: 0px;
+        z-index: 2;
+    }
+}
+
+
+.container2 {
+    margin: 0 auto;
+}
+.container3 {
+    text-align: center;
+    height: auto;
+    min-height: 500px;
+    margin: 0 auto;
+    width: 95%;
+}
+.container4 {
+    text-align: center;
+    margin: 0 auto;
+    width: 95%;
+}
+.saving {
+    text-align: center;
+    height: 60vh;
+    margin: 0 auto;
+}
+.barra {
+    width: 100%;
+    height: 2.5rem;
+    margin: 0 auto;
+    background: gray;
+}
+.contact {
+    color: #009599;
+}
+.contact:hover {
+    color: #009599;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);;
+}
+.maps {
+    padding-bottom: 2rem;
+}
+.card {
+    display: inline-block;
+    min-width: 250px;
+    max-width: 20%;
+    height: auto;
+    text-align: left;
+    margin: 2% 1%;
+    border-style: solid;
+    border-color: rgb(128, 128, 128);
+    border-radius: 9px;
+    border-width: 1px;
+}
+.card_img {
+    text-align: center;
+}
+.card_img img {
+    width: 70%;
+    margin-top: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card_title {
+    font-weight: 300;
+    font-size: 1.2rem;
+    /*padding-left: 1.2rem;
+    padding-right: 0.6rem;
+    padding-top: 0.5rem;*/
+    margin: 3% auto;
+    text-align: center;
+}
+.card_txt {
+    font-weight: 200;
+    font-size: 0.8rem;
+    /*padding-left: 1.2rem;
+    padding-right: 0.6rem;
+    padding-top: 0.5rem;*/
+    margin: 3% 5%;
+    text-align: center;
+}
+.card_money {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #71b11f;
+    /*padding-left: 1.2rem;
+    padding-right: 0.6rem;
+    padding-top: 0.5rem;
+    margin: 3% 5%;*/
+}
+.card_button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    height: 2rem;
+    color: white;
+    background-color: gray;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.card_button a {
+    color: white;
+}
+
+.card_button:hover {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    height: 2rem;
+    /*color: black;*/
+    /*background-color: #c6e7e8;*/
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 4%;
+    text-align: center;
+    animation-name: button-animation;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+}
+
+.card_button:hover a {
+    color: black;
+}
+
+@keyframes button-animation {
+    from {background-color: gray;}
+    to {background-color: #c6e7e8;
+        color: black;}
+  }
+
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+footer a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: .5rem .8rem .5rem .8rem;
+}
+.footer {
+    padding: 1rem 0rem .5rem 0rem;
+    font-size: .95em;
+    background-color: gray;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+.separador {
+    padding-top: 1rem;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    margin-block-start: .8em;
+    margin-block-end: .8em;
+}
+
+/* Estilos de las Cards */
+a {
+    text-decoration: none;
+}
+
+/* error en el formulario */
+.form-control.erro {
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+/* ventana pop up */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlay.active {
+    visibility: visible;
+}
+.popup {
+    background: #009599;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    width: 25%;
+    height: 25%;
+}
+.popup .btn-cerrar-popup {
+    font-size: 20px;
+    line-height: 20px;
+    display: block;
+    text-align: right;
+    color: #b2dfe0;
+}
+.popup .btn-cerrar-popup:hover {
+    color: black;
+}
+.popup .svgpop {
+    margin: 0 auto;
+    width: 50%;
+}
+
+/*#######################################*/
+
+table {
+    width:100%;
+    border-spacing:0;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    text-align:left;
+    font-size:14px;
+    padding:10px;
+    margin:0;
+}
+
+tbody tr:nth-child(odd) {
+    background:#efefef;
+}
+
+tbody tr.subtotal {
+    background:#ccc;
+}
+
+thead th, tbody tr.total {
+    background:#b2dfe0;
+    color:#000;
+    font-weight:bold;
+}
+
+table.cart {
+    margin-bottom:40px;
+}
+
+table.cart img {
+    width:100px;
+}
+
+tbody td.num {
+    text-align:right;
+}
+
+td input[type="submit"] {
+    font-size:12px;
+    padding:4px 10px;
+}
+.buttoncont {
+    color: white;
+    text-decoration: none;
+    background-color: gray;
+    padding: .6rem .5rem .4rem .5rem;
+    display: inline-block;
+    width: 11rem;
+    /*height: 1.5rem;*/
+    text-align: center;
+}
+
+.buttoncont:hover {
+    color: black;
+    background-color: #b2dfe0;
+}
+
+.buttonout {
+    color: white;
+    text-decoration: none;
+    background-color: gray;
+    padding: .6rem .5rem .4rem .5rem;
+    display: inline-block;
+    width: 11rem;
+    /*height: 1.5rem;*/
+    text-align: center;
+}
+
+.buttonout:hover {
+    color: black;
+    background-color: #b2dfe0;
+}
+
+
+ /* tabla check */
+
+ 
+/*.order-form {
+    float:left;
+}*/
+
+.order-info {
+    float:right;
+    width:300px;
+    background:#efefef;
+    padding:10px 20px;
+    color:#333;
+    border-bottom:4px solid #009599;
+}
+
+.order-info h3 {
+    color:#009599;
+}
+
+.order-info ul li {
+    margin:0;
+    padding:0;
+    font-size:14px;
+}
+
+.order-info p {
+    font-weight:bold;
+    float:right;
+}
+
+.order-info span {
+    float:right;
+}
+
+/* estilos del detalle */
+.card-button {
+    width:50%;
+    height: 2rem;
+    color: white;
+    background-color: gray;
+    margin-left: 5%;
+    margin-bottom: 4%;
+    border: none;
+}
+
+.card-button a {
+    color: white;
+}
+
+.card-button:hover {
+    width:50%;
+    height: 2rem;
+    /*color: black;*/
+    /*background-color: #c6e7e8;*/
+    margin-left: 5%;
+    margin-bottom: 4%;
+    animation-name: button-animation;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+}
+
+.card-button:hover a {
+    color: black;
+}
+
+@keyframes button-animation {
+    from {background-color: gray;}
+    to {background-color: #c6e7e8;
+        color: black;}
+  }
+
+.card-submit {
+    width:50%;
+    height: 2rem;
+    color: white;
+    background-color: gray;
+    margin-left: 5%;
+    margin-bottom: 4%;
+    border: none;
+}
+
+.card-submit a {
+    color: white;
+}
+
+.card-submit:hover {
+    width:50%;
+    height: 2rem;
+    /*color: black;*/
+    /*background-color: #c6e7e8;*/
+    margin-left: 5%;
+    margin-bottom: 4%;
+    animation-name: button-animation;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+}
+
+.card-submit:hover a {
+    color: black;
+}
+
+.img-fluida {
+    max-width: 95%;
+    height: auto;
+    margin-top: .5rem;    
+    margin-left: .5rem;    
+    margin-bottom: .5rem;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Sumario */
+.contanedor {
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn-danger a {
+    text-decoration: none;
+    color: white;
+}
+
+/* tabla completado */
+
+.table2 {
+    border-width: 1px;
+    border-color: #009599;
+}
+
+.table2 tr{
+    border-color: black;
+    border-width: 1px;
+}
+
+.table2 th{
+    color: white;
+    background-color: black;
+    border-width: 1px;
+    border-color: black;
+
+}
+
+.table2 td{
+    border-width: 1px;
+    width:  11rem ;
+}
+
+.table2 tbody tr:nth-child(odd){
+    background-color: #ffffff;
+
+}
+
+.td_back {
+    background-color: gray;
+    color: white;
+}
+.table2 .total {
+    background-color: #009599;
+
+}

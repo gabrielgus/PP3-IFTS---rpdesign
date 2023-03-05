@@ -1,0 +1,84 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Proceder a pagar {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+  <div class="container3">
+    <div class="separador"></div>
+    {% if user.is_authenticated %}
+      <h1> "Bienvenido {{ user.first_name|lower }} a RP design" </h1>
+    {% else %}
+      <h1> "Bienvenido a RP design" </h1>
+    {% endif %}
+
+    <h1>Sumario de su orden</h1>
+    <table class="cart">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in orden.items.all %}
+        <tr>
+          <td>
+            <img src="{{ item.producto.imagen.url }}" alt="{{producto.name}}">
+          </td>
+          <td>{{ item.producto.nombre }}</td>
+          <td class="num">${{ item.precio }}</td>
+          <td class="num">{{ item.cantidad }}</td>
+          <td class="num">${{ item.get_costo }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Costo de envio</td>
+          <td class="num">${{ envio }}</td>
+        </tr>
+        <tr class="total">
+          <td colspan="4">Total de la orden</td>
+          <td class="num">${{ orden.get_costo_total|add:envio }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="contanedor">
+    <button class="btn btn-danger"><a onclick="return confirm('¿Desea cancelar su orden?')" href="{% url 'appRP:orden_cancelada' orden.id %}">  Cancelar </a></button>
+      <div class="cho-container"></div>
+    </div>
+    <div class="separador"></div>
+
+  </div>
+</main>
+
+
+
+
+{% endblock contenido %}
+
+{% block javascript %}
+
+    <script language="JavaScript" type="text/javascript">
+      const mp = new MercadoPago('TEST-4e395df0-619b-4958-b752-6be5b8979e8a', {
+        locale: 'es-AR'
+      });
+      mp.checkout({
+        preference: {
+          id: '{{ id }}'
+        },
+        render: {
+          container: '.cho-container',
+          label: 'Pagar con Mercado Pago',
+        }
+      });
+    </script>
+
+{% endblock javascript %}

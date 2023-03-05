@@ -1,0 +1,48 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Alta usuario {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+  <div class="container3">
+    <div class="separador"></div>
+    <h1> "Bienvenido a RP design" </h1>
+    <div class="separador"></div>
+    <div>
+      <h4> Alta de usuario</h4>
+    </div>
+
+    <div class="form2">
+      <form id="altau-form" name="altau-form" action="{% url 'appRP:alta_usuario' %}"  method="POST" onsubmit="return validarForm()" >
+        {% csrf_token %}
+
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+
+        <div class="form-row">
+
+          {% for field in altau_form %}
+
+            {{ field.label_tag }}
+            {{ field }}
+            <div>{{ field.errors }}</div>
+            
+          {% endfor %}
+
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock contenido %}
+
+{% block javascript %}
+  {% load static %}
+    <script src="{% static 'js/validar.js' %}"></script>
+{% endblock javascript %}

@@ -1,0 +1,40 @@
+<nav>
+    <div class="barra">
+        <a class="button" href="{% url 'appRP:inicio' %}">Home</a>
+        <a class="button" href="{% url 'appRP:decoracion' %}">Galer&iacute;a</a>
+        <a class="button" href="{% url 'appRP:contacto' %}">Contacto</a>
+        {% if user.is_authenticated and user.is_admin or user.is_staff %}
+            <a class="button" href="{% url 'appRP:alta_producto' %}">Alta</a>
+            <a class="button" href="{% url 'appRP:productos' %}">Productos</a>
+            <a class="button" href="{% url 'appRP:logout' %}"><i class="fa fa-sign-out"></i> Salir</a>
+        {% elif user.is_authenticated %}
+            <a class="button" href="{% url 'appRP:editar_usuario' user.id %}"><i class="fa fa-user"></i> {{user.get_username}}</a>
+            <a class="button" href="{% url 'appRP:carrito_detalle' %}"><i class="fa fa-shopping-cart"></i> {{ carrito|length }}</a>
+            <a class="button" href="{% url 'appRP:logout' %}"><i class="fa fa-sign-out"></i> Salir</a>
+        {% else %}
+            <a class="button" href="{% url 'appRP:login' %}"><i class="fa fa-sign-in"></i> Ingresar</a>
+        {% endif %}
+
+
+        <div class="burger">
+            <input type="checkbox" id="menu">
+            <label for="menu"> ☰ </label>
+            <ul>
+                <li><a class="burgerbut" href="{% url 'appRP:inicio' %}">Home</a></li>
+                <li><a class="burgerbut" href="{% url 'appRP:decoracion' %}">Galer&iacute;a</a></li>
+                <li><a class="burgerbut" href="{% url 'appRP:contacto' %}">Contacto</a></li>
+                {% if user.is_authenticated and user.is_admin or user.is_staff %}
+                    <li><a class="burgerbut" href="{% url 'appRP:alta_producto' %}">Alta</a></li>
+                    <li><a class="burgerbut" href="{% url 'appRP:productos' %}">Productos</a></li>
+                    <li><a class="burgerbut" href="{% url 'appRP:logout' %}"><i class="fa fa-sign-out"></i> Salir</a></li>
+                {% elif user.is_authenticated %}
+                    <li><a class="burgerbut" href="{% url 'appRP:editar_usuario' user.id %}"><i class="fa fa-user"></i> {{user.get_username}}</a></li>
+                    <li><a class="burgerbut" href="{% url 'appRP:carrito_detalle' %}"><i class="fa fa-shopping-cart"></i> {{ carrito|length }}</a></li>
+                    <li><a class="burgerbut" href="{% url 'appRP:logout' %}"><i class="fa fa-sign-out"></i> Salir</a></li>
+                {% else %}
+                    <li><a class="burgerbut" href="{% url 'appRP:login' %}"><i class="fa fa-sign-in"></i> Ingresar</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

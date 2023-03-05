@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Contacto {% endblock titulo %}
+
+{% block contenido %}
+<main>
+    <div class="container3">
+        <div class="separador"></div>
+        <h1> "Contactenos" </h1>
+        {{ titulo|title }}
+        <div class="separador"></div>
+        <p>Escribanos a:</p>
+        <a class="contact" href="mailto:rpdesign@rpdesign.com.ar"> rpdesign@rpdesign.com.ar </a>
+        <div class="separador"></div>
+        <p class="main">Personalmente en Villa del Parque</p>
+        <a class="contact" href="https://goo.gl/maps/jz2rqpRmJ3fn2JmG6" target="_blank">Av. Francisco Beiró
+            3200</a>
+        <div class="separador"></div>
+        <div class="maps">
+            <iframe class="mapa_contacto"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4020.121119804454!2d-58.50063737072891!3d-34.59735791328391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6309768763f%3A0xa46660c736627764!2sAv.%20Francisco%20Beir%C3%B3%203200%2C%20C1419HYS%20CABA!5e0!3m2!1ses-419!2sar!4v1629481903526!5m2!1ses-419!2sar"
+                width="23%" height="300" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</main>
+{% endblock contenido %}

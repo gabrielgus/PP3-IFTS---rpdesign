@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+            .table2 {
+                border-width: 1px;
+                border-color: #009599;
+            }
+            .table2 tr {
+                border-color: black;
+                border-width: 1px;
+            }
+            .table2 th {
+                color: white;
+                background-color: black;
+                border-width: 1px;
+                border-color: black;
+            }
+            .table2 td {
+                border-width: 1px;
+                width:  11rem ;
+            }
+            .table2 tbody tr:nth-child(odd){
+                background-color: #ffffff;
+            }
+            .td_back {
+                background-color: gray;
+                color: white;
+            }
+            .table2 .total {
+                background-color: #009599;
+            }
+    </style>
+
+</head>
+<body>
+    <main>
+    <div class="container3">
+        <div class="separador"></div>
+        <h1> Se ha generado la Orden Nro. {{ orden.id }}</h1>
+        <table class="table2">
+            <thead>
+                <tr>
+                    <th colspan=6> Detalle de orden </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan=1 class="td_back"> Nombre y Apellido:</td>
+                    <td colspan=2>{{ orden.first_name }} {{ orden.last_name }}</td>
+                    <td colspan=1 class="td_back">E-mail:</td>
+                    <td colspan=2><a class="contact" href="mailto:{{ orden.email }}"> {{ orden.email }} </a></td>
+                </tr>
+                <tr>
+                    <td colspan=1 class="td_back">Calle:</td>
+                    <td colspan=3>{{ orden.calle }}</td>
+                    <td colspan=1 class="td_back">Nro.</td>
+                    <td colspan=1>{{ orden.altura }}</td>
+                </tr>
+                <tr>    
+                    <td colspan=1 class="td_back">Piso:</td>
+                    <td colspan=1>{{ orden.piso }}</td>
+                    <td colspan=1 class="td_back">Depto:</td>
+                    <td colspan=1>{{ orden.depto }}</td>
+                    <td colspan=1 class="td_back">Código Postal:</td>
+                    <td colspan=1>{{ orden.cod_postal }}</td>
+                </tr>
+                <tr>
+                    <td colspan=1 class="td_back">Localidad:</td>
+                    <td colspan=5>{{ orden.localidad }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table  class="table2">
+            <thead>
+                <tr>
+                    <th colspan=3>Producto</th>
+                    <th colspan=1>Cantidad</th>
+                    <th colspan=1>Precio Unitario</th>
+                    <th colspan=1>Subtotal</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for ite in orden.items.all %}
+                <tr>
+                    <td colspan=3>    {{ ite.producto.nombre }}    </td>
+                    <td colspan=1>    {{ ite.cantidad }}    </td>
+                    <td colspan=1>    ${{ ite.precio }}.-    </td>
+                    <td colspan=1>    ${{ ite.get_costo }}.-    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan=5>    {{ envio.description }}    </td>
+                    <td colspan=1>    ${{ envio.unit_price }}0.-   </td>
+                </tr>
+                <tr>                    
+                    <td colspan=4></td>
+                    <td colspan=1 class="total">Total</td>
+                    <td colspan=1>${{ orden.get_costo_total|add:envio.unit_price }}.00.-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+
+</html>

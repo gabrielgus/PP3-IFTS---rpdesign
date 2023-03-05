@@ -1,0 +1,83 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Carrito {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+  <div class="container3">
+    <div class="separador"></div>
+    
+    {% if user.is_authenticated %}
+      <h1> "Bienvenido {{ user.first_name|lower }} a RP design" </h1>
+    {% else %}
+      <h1> "Bienvenido a RP design" </h1>
+    {% endif %}
+
+        <h1>Productos en el Carrito</h1>
+          <table>
+            <thead>
+              <tr>
+                  <th>Imagen</th>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Remover</th>
+                  <th>Precio Unitario</th>
+                  <th>Importe</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in carrito %}
+                {% with producto=item.producto %}
+                <tr>
+                  <td>
+                    <a href="{{ producto.get_absolute_url }}">
+                      <img src="{{producto.imagen.url}}" height="75px" alt="{{producto.name}}">
+                    </a>
+                  </td>
+                  <td>{{ producto.nombre }}</td>
+                  <td>
+                    <form action="{% url "appRP:carrito_add" producto.id %}" method="post">
+                      {{ item.actualizar_cantidad_form.cantidad }}
+                      {{ item.actualizar_cantidad_form.anular }}
+                      <input type="submit" value="Actualizar">
+                      {% csrf_token %}
+                    </form>
+                  </td>
+                  <td>
+                    <form action="{% url "appRP:carrito_remove" producto.id %}" method="post">
+                      <input type="submit" value="Remover">
+                      {% csrf_token %}
+                    </form>
+                  </td>
+                  <td class="num">${{ item.precio }}</td>
+                  <td class="num">${{ item.precio_total }}</td>
+                </tr>
+                {% endwith %}
+              {% endfor %}
+                <tr class="total">
+                  <td>Importe Total</td>
+                  <td colspan="4"></td>
+                  <td class="num">${{ carrito.get_precio_total }}</td>
+                </tr>
+            </tbody>
+          </table>
+          <div class="separador"></div>
+
+        <p class="text-right">
+        <a href="{% url "appRP:decoracion" %}" class="buttoncont">Continuar comprando</a>
+        <a href="{% url "appRP:crear_orden" %}" class="buttonout"><i class="fa fa-check-circle"></i>Checkout</a>
+        </p>
+   
+  </div>
+</main>
+
+
+
+
+
+
+
+
+{% endblock contenido %}
+

@@ -1,0 +1,58 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Alta productos {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+    <div class="container3">
+        <div class="separador"></div>
+
+        <div class="row">
+            <div class="col-sm-12 titulo">
+                <h4> Alta de Producto</h4>
+            </div>
+        </div>
+
+        <div class="form2">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+            <form novalidate='True' id="alta-form" name="alta-form" action="{% url 'appRP:alta_producto' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-row">
+
+                    {% for field in alta_form %}
+                    {% if field.name == 'formato' or field.name == 'precio' %}
+    
+                    <div class="form-group col-md-12">
+                        {{ field.label_tag }}
+                        {{ field }}                    
+                    </div>
+    
+                    {% else %}    
+                    <div class="form-group col-12">
+                        {{ field.label_tag }}
+                        {{ field }}                      
+                    </div>            
+                    {% endif %}
+                    <div>{{field.errors}}</div>
+                    {% endfor %}
+
+                </div>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </form>
+
+        </div>
+
+    </div>
+</main>
+
+{% endblock contenido %}
+
+{% block javascript %}
+
+{% endblock javascript %}

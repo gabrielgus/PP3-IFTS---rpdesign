@@ -1,0 +1,31 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Login {% endblock titulo %}
+
+{% block contenido %}
+<main>
+    <div class="container3">
+        <div class="separador"></div>
+        <h1> "Bienvenido a RP design" </h1>
+        <div class="separador"></div>
+            {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}" role="alert">
+            {{ message }}
+            </div>
+            {% endfor %}
+        <form id="login" name="login" action="{% url 'appRP:login' %}" method="POST">
+            <div class="form">{% csrf_token %}
+                {% for field in form %}
+
+                {{ field.label_tag }}
+                {{ field }}
+                
+                {% endfor %}
+                <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                <p class="message">No esta registrado? <a href="{% url 'appRP:alta_usuario' %}">Crea una cuenta</a></p>
+            </div>
+        </form>
+        <div class="separador"></div>
+    </div>
+</main>
+{% endblock contenido %}

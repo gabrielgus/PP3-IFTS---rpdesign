@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+
+{% block titulo %} - Decoracion {% endblock titulo %}
+
+{% block contenido %}
+
+<main>
+    <section>
+        <div class="container3">
+            <div class="separador"></div>
+            {% if user.is_authenticated %}
+              <h1> "Bienvenido {{ user.first_name|lower }} a RP design" </h1>
+            {% else %}
+              <h1> "Bienvenido a RP design" </h1>
+            {% endif %}
+
+            {{ value|time:"TIME_FORMAT" }}
+
+            {% if lalista|length > 0 %} 
+
+            {% for producto in lalista %}
+            
+            <div class="card">
+                <div class="card_img">
+                    {% load static %}
+                    <img src={% get_media_prefix %}{{producto.imagen}} alt={{producto.nombre}}>
+                </div>
+                <div class="card_title">
+                    <p>{{producto.nombre}}</p>
+                </div>
+                <div class="card_txt">
+                    <p>$ {{producto.precio}}.-</p>
+                </div>
+                <a href="{{ producto.get_absolute_url }}" class="card_button">Detalle</a>
+            </div>
+           
+            {% endfor %}
+
+            {% else %}
+                <p> La lista esta vacia - <strong> Ocurrio un error al cargar los datos!!!!! </strong> </p>
+            {% endif %}
+
+        </div>
+    </section>
+</main>
+
+{% endblock contenido %}
